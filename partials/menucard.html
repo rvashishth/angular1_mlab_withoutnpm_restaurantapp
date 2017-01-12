@@ -1,0 +1,42 @@
+<h3>Menu Card</h3>
+ <div class="col-sm-6" ng-controller="myMenuAppController">
+            <h3>List of Menu items</h3>
+            
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Place Order</th>
+                </tr>
+                <tr ng-repeat="mi in itemlist">
+                    <td>{{mi.name}}</td>
+                    <td>{{mi.price}}</td>
+                    <td class="btn btn-primary glyphicon glyphicon-shopping-cart" ng-click="placeOrder(mi)">Order</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="col-sm-6" ng-controller="OrderController">
+            <h3>Ordered Items <span class="label label-primary">{{orderedItem.length}}</span></h3>
+            
+            <table class="table table-bordered table-striped">
+                <tr><th>Item Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
+                </tr>
+                <tr ng-repeat="item in orderedItem">
+                    <td><button class="btn btn-danger btn-xs" ng-click="cancleOrder($index)">x</button>
+                        {{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>
+                        <input type="number" ng-model="item.qty" style="width:50px"/>
+                    </td>
+                    <td>{{item.amount = item.qty*item.price}}</td>
+                </tr>
+                <tr>
+                    <th  colspan="3">Total Amount</th>
+                    <td>{{totalAmount()}}</td>
+                </tr>
+            </table>
+        </div>

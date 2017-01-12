@@ -1,0 +1,65 @@
+Questions -
+    3. 
+
+IDE - Bracket 
+Angular version - 1.5.7
+deployd - 0.8.0
+
+Create and pass module dependencies
+    var app = angular.module("myMenuApp", ['ngSanitize','CtrlModule']);
+Built-in modules
+    ngMessages
+    ngResource
+    ngRoute
+    ngSanitize
+Build-in directives 
+    ng-app
+    ng-init
+    ng-bind -> alternate of this is to use expression directive {{menuitem.name}}
+    ng-bind-html -> allows all HTML tags entered
+    ng-senitize
+    ng-controller
+    ng-repeat
+    ng-click
+    ng-model -> two way data binding, using html form tag
+    ng-view -> can be used both as a tag and attribute
+    ng-show
+    ng-hide
+    ng-required
+Built-in objects 
+    $rootScope
+    $scope
+        $on
+    $index
+    $http
+    $resource
+    $route
+        $routeChangeStart
+        $routeChangeSuccess
+    $http
+    $resource
+    $location
+    FormAPI
+        $pristine
+        $dirty
+        $valid
+        $invalid
+        $error
+Type of Services in AJ
+    Value
+        value("valuename",vlaue)
+    Factory
+	factory("factoryname",function(){});
+    Service
+	always a contructor funcation, will only return object
+	service("servicename",constructor function(){});
+    Provider
+	available at both config and run phase
+	provider name must be suffixed with Provider in config funcation
+	serviceappModule.config(function(mytestProvider);
+    Constant   
+	available at both config and run phase
+Built-in Funcations of Module
+    conf(funcation(){})
+    app(funcation(){})
+    controller("controllername",funcation(){})

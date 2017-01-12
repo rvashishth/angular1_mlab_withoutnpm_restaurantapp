@@ -1,0 +1,36 @@
+<h3>Enter Customer Details</h3>
+<form name="userform" class="well">
+    <fieldset class="form-group">
+        <label for="username">User Name</label>
+        <input id="username" class="form-control" name="name" placeholder="Enter your name" type="text" ng-model="user.name" ng-required="true">
+        <span ng-messages="userform.name.$error">
+            <b style="color:red" ng-message="required" ng-show="userform.name.$dirty">name is Required</b>
+        </span>
+    </fieldset>
+    <br>
+    <br>
+    <input name="contactnumber" class="form-control"  placeholder="Enter contact number" ng-model="user.contactnumber" ng-pattern="/^[789]\d{9}$/" ng-required="true">
+    <span ng-messages="userform.contactnumber.$error" ng-show="userform.contactnumber.$dirty">
+        <b style="color:red" ng-message="required">contact number is required</b>
+        <b style="color:red" ng-message="pattern">invalid contact number</b>
+    </span>
+    <br>
+    <br>
+    <select name="state" class="form-control"  ng-model="user.state" ng-options="state.stateId as state.stateName for state in stateList" ng-required="true">
+        <option value="">Select State</option>
+    </select>
+    <span ng-messages="userform.state.$error" ng-show="userform.state.$dirty">
+        <b style="color:red" ng-message="required">state is required</b>
+    </span>
+    <br>
+    <br>
+    <select name="city" class="form-control"  ng-model="user.city" ng-options="city.cityId as city.cityName for city in cityList" ng-required="true">
+        <option value="">Select City</option>
+    </select>
+    <span ng-messages="userform.city.$error" ng-show="userform.city.$dirty">
+        <b style="color:red" ng-message="required">city is required</b>
+    </span>
+    <br>
+    <br>
+    <button type="submit" class="btn btn-primary" ng-disabled="userform.$invalid">Sign Up</button>
+</form>

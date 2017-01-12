@@ -1,0 +1,34 @@
+<h3>Manage Menu Item</h3>
+
+<form class ="well">
+    <input ng-model="newmenuitem.code" placeholder="Enter Item Code">
+    <input ng-model="newmenuitem.name" placeholder="Enter Item Name">
+    <input ng-model="newmenuitem.price" placeholder="Enter Item Price">
+    <input ng-model="newmenuitem.description" placeholder="Enter Item Description">
+    <button class="btn btn-primary glyphicon glyphicon-floppy-disk" ng-click="save()"> Save</button>
+</form>
+<div class="well">
+    <!--Find: <input ng-model="search.$">-->
+    Find: <input ng-model="search.name">
+</div>
+<table class="table  table-bordered">
+    <tr>
+        <th>Code</th>
+        <th><a href="" ng-click="sortBy='name'">Name</a></th>
+        <th><a href="" ng-click="sortBy='price'">Price</a></th>
+        <th>Description</th>
+        <th>Action</th>
+    </tr>
+    <tr ng-repeat="mi in itemlist | filter:search | orderBy: sortBy"><!--desending orderBy: '-name' OR
+    orderBy: ['-name','-price']
+    -->
+        <td>{{mi.code}}</td>
+        <td>{{mi.name | uppercase}}</td>
+        <td>{{mi.price}}</td>
+        <td>{{mi.description | truncate:7 }}</td>
+        <td>
+            <button class="btn btn-danger glyphicon glyphicon-trash" ng-click="removeItem(mi.id,$index)"></button>
+            <button class="btn btn-success glyphicon glyphicon-edit" ng-click="editItem(mi)"></button>
+        </td>
+    </tr>
+</table>
